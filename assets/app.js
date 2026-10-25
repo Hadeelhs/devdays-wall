@@ -80,7 +80,8 @@ async function load() {
     if (seen.has(p.username)) return;
     seen.add(p.username);
     const card = buildCard(p, p.trainer ? null : contributors.indexOf(p));
-    wall.prepend(card); // newest first, so new arrivals show up at the top of the projector
+    //wall.prepend(card); // newest first, so new arrivals show up at the top of the projector
+    wall.append(card); // #1 first, #n last
     if (!firstLoad && !p.trainer) {
       card.classList.add("new");
       celebrate(p);
